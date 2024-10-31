@@ -47,7 +47,7 @@
                                 <li><a class="dropdown-item" href="{{ route('fasilitas')}}">Fasilitas</a></li>
                             </ul>
                         </li>
-                        <li><a href="properties.html">Disewakan</a></li>
+                        <li><a href="{{ route('disewakan')}}">Disewakan</a></li>
                         <li><a href="peraturan.html">Peraturan & Regulasi</a></li>
                         <!-- Berita Dropdown -->
                         <li class="nav-item dropdown">

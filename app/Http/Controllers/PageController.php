@@ -20,4 +20,9 @@ class PageController extends Controller
     {
         return view('frontend.pages.fasilitas');
     }
+
+    public function disewakan()
+    {
+        return view('frontend.pages.disewakan');
+    }
 }

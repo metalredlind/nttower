@@ -12,6 +12,8 @@ Route::get('/tentang-kami', [PageController::class, 'tentangkami'])->name('tenta
 Route::get('/direktori-tenan', [PageController::class, 'direktoriTenan'])->name('direktori-tenan');
 Route::get('/fasilitas', [PageController::class, 'fasilitas'])->name('fasilitas');
 
+Route::get('/disewakan', [PageController::class, 'disewakan'])->name('disewakan');
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
