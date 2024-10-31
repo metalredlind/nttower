@@ -2,10 +2,15 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/tentang-kami', [PageController::class, 'tentangkami'])->name('tentang-kami');
+Route::get('/direktori-tenan', [PageController::class, 'direktoriTenan'])->name('direktori-tenan');
+Route::get('/fasilitas', [PageController::class, 'fasilitas'])->name('fasilitas');
 
 
 // Route::get('/dashboard', function () {

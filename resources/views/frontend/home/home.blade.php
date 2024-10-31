@@ -1,112 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('frontend.layouts.master')
 
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <title>NT Tower</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{asset('frontend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/nttower.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/owl.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.css')}}">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-  </head>
-
-<body>
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <ul class="info">
-            <li><i class="fa fa-envelope"></i> info@nttower.com</li>
-            <li><i class="fa fa-map"></i>Jl. Pulomas Selatan Kav. Blok, Kota Jakarta Timur 13210</li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-                <!-- ***** Logo Start ***** -->
-                <a href="{{route('home')}}" class="logo">
-                    <h1>NT TOWER</h1>
-                </a>
-                <!-- ***** Logo End ***** -->
-                <!-- ***** Menu Start ***** -->
-                <ul class="nav">
-                    <li><a href="{{route('home')}}" class="active">Beranda</a></li>
-                    <!-- Profil Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Profil
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-                            <li><a class="dropdown-item" href="tentangkami.html">Tentang Kami</a></li>
-                            <li><a class="dropdown-item" href="direktoritenan.html">Direktori Tenan</a></li>
-                            <li><a class="dropdown-item" href="fasilitas.html">Fasilitas</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="properties.html">Disewakan</a></li>
-                    <li><a href="peraturan.html">Peraturan & Regulasi</a></li>
-                    <!-- Berita Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" href="#" id="beritaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Berita
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
-                            <li><a class="dropdown-item" href="whatson.html">What's On</a></li>
-                            <li><a class="dropdown-item" href="videos.html">Videos</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contact.html">Kontak</a></li>
-                </ul>
-                <a class='menu-trigger'>
-                    <span>Menu</span>
-                </a>
-                <!-- ***** Menu End ***** -->
-            </nav>
-        </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
+@section('content')
   <div class="main-banner">
     <div class="header-text">
       <h7>Rent now!<br>Get the Best Property for you!</h7>
@@ -275,22 +169,6 @@
     </div>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2024 NT Tower. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{asset('frontend/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{{asset('frontend/assets/js/isotope.min.js')}}"></script>
-  <script src="{{asset('frontend/assets/js/owl-carousel.js')}}"></script>
-  <script src="{{asset('frontend/assets/js/counter.js')}}"></script>
-  <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
   <script>
   document.getElementById('zona-select').addEventListener('change', function () {
   const lantaiSelect = document.getElementById('lantai-select');
@@ -316,5 +194,5 @@
   }
 });
   </script>
-  </body>
-</html>
+
+@endsection
