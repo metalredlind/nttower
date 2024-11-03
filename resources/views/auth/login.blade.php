@@ -51,7 +51,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <title>Login &mdash; NT Tower</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap/css/bootstrap.min.css')}}">
@@ -127,7 +127,7 @@
                     </button>
                   </div>
 
-                  
+
                     <div class="simple-footer">
                         Copyright &copy; Nusantara TV 2024
                     </div>
@@ -148,11 +148,11 @@
   <script src="{{asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
   <script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
   <script src="{{asset('backend/assets/js/stisla.js')}}"></script>
-  
+
   <!-- JS Libraies -->
 
   <!-- Page Specific JS File -->
-  
+
   <!-- Template JS File -->
   <script src="{{asset('backend/assets/js/scripts.js')}}"></script>
   <script src="{{asset('backend/assets/js/custom.js')}}"></script>
