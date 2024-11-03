@@ -10,6 +10,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+//frontend pages
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/tentang-kami', [PageController::class, 'tentangkami'])->name('tentang-kami');
@@ -17,7 +18,10 @@ Route::get('/direktori-tenan', [PageController::class, 'direktoriTenan'])->name(
 Route::get('/fasilitas', [PageController::class, 'fasilitas'])->name('fasilitas');
 
 Route::get('/disewakan', [PageController::class, 'disewakan'])->name('disewakan');
-
+Route::get('/peraturan-regulasi', [PageController::class, 'peraturanRegulasi'])->name('peraturan-regulasi');
+Route::get('/berita', [PageController::class, 'beritaWhatson'])->name('berita');
+Route::get('/berita-video', [PageController::class, 'beritaVideo'])->name('berita-video');
+Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

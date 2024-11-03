@@ -25,4 +25,24 @@ class PageController extends Controller
     {
         return view('frontend.pages.disewakan');
     }
+
+    public function peraturanRegulasi()
+    {
+        return view('frontend.pages.peraturan-regulasi');
+    }
+
+    public function beritaWhatson()
+    {
+        return view('frontend.pages.berita-whatson');
+    }
+
+    public function beritaVideo()
+    {
+        return view('frontend.pages.berita-video');
+    }
+
+    public function kontak()
+    {
+        return view('frontend.pages.kontak');
+    }
 }

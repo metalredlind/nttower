@@ -48,7 +48,7 @@
                             </ul>
                         </li>
                         <li><a href="{{ route('disewakan')}}">Disewakan</a></li>
-                        <li><a href="peraturan.html">Peraturan & Regulasi</a></li>
+                        <li><a href="{{ route('peraturan-regulasi')}}">Peraturan & Regulasi</a></li>
                         <!-- Berita Dropdown -->
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="#" id="beritaDropdown" role="button"
@@ -56,11 +56,11 @@
                                 Berita
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
-                                <li><a class="dropdown-item" href="whatson.html">What's On</a></li>
-                                <li><a class="dropdown-item" href="videos.html">Videos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('berita')}}">What's On</a></li>
+                                <li><a class="dropdown-item" href="{{ route('berita-video')}}">Videos</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="{{ route('kontak')}}">Kontak</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
