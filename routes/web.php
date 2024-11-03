@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\BeritaController;
+use App\Http\Controllers\Backend\DisewakanController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -26,6 +28,12 @@ Route::get('dashboard', [AdminDashboardController::class, 'dashboard'])->middlew
 Route::get('admin-profile', [AdminProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('admin-profile');
 Route::post('profile/update', [AdminProfileController::class, 'updateProfile'])->middleware(['auth', 'verified'])->name('admin-profile.update');
 Route::post('profile/update/password', [AdminProfileController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('admin-profile.password.update');
+
+//disewakan routes
+Route::resource('admin-disewakan', DisewakanController::class);
+
+//berita routes
+Route::resource('admin-berita', BeritaController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -12,7 +12,7 @@ class DisewakanController extends Controller
      */
     public function index()
     {
-        //
+        return view('backend.disewakan.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class DisewakanController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.disewakan.create');
     }
 
     /**

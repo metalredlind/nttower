@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <h4>Disewakan</h4>
                             <div class="card-header-action">
-                                <a href="{{route('admin-disewakan.create')}}" class="btn btn-primary">
+                                <a href="#" class="btn btn-primary">
                                     + Add New
                                 </a>
                             </div>
