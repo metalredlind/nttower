@@ -25,6 +25,7 @@ Route::get('dashboard', [AdminDashboardController::class, 'dashboard'])->middlew
 
 Route::get('admin-profile', [AdminProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('admin-profile');
 Route::post('profile/update', [AdminProfileController::class, 'updateProfile'])->middleware(['auth', 'verified'])->name('admin-profile.update');
+Route::post('profile/update/password', [AdminProfileController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('admin-profile.password.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

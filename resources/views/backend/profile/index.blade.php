@@ -63,7 +63,7 @@
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-12 col-lg-8">
                     <div class="card">
-                        <form method="post" class="needs-validation" novalidate="" action="" enctype="multipart/form-data">
+                        <form method="post" class="needs-validation" novalidate="" action="{{route('admin-profile.password.update')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
                                 <h4>Update Password</h4>
