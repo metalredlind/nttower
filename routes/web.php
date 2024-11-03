@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
@@ -20,6 +22,9 @@ Route::get('/disewakan', [PageController::class, 'disewakan'])->name('disewakan'
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('dashboard', [AdminDashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('admin-profile', [AdminProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('admin-profile');
+Route::post('profile/update', [AdminProfileController::class, 'updateProfile'])->middleware(['auth', 'verified'])->name('admin-profile.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
