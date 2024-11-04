@@ -19,6 +19,10 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
+
+    {{-- Datatables CSS --}}
+    <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
+
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <script>
@@ -86,6 +90,8 @@
     <script src="{{ asset('backend/assets/js/custom.js') }}"></script>
     <!-- Flasher JS File -->
     <script src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
+    {{-- Datatables JS --}}
+    <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
 
     <script>
         @if ($errors->any())
@@ -95,6 +101,8 @@
             @endforeach
         @endif
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>

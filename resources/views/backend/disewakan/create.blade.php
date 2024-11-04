@@ -22,23 +22,34 @@
                                     <input type="file" class="form-control" name="image">
                                 </div>
                                 <div class="form-group">
-                                    <label>Kategori Properti</label>
-                                    <input type="text" class="form-control" name="kategori_properti" value="{{old('jenis_industri')}}">
+                                    <label for="inputState">Kategori Properti</label>
+                                    <select id="inputState" class="form-control" name="kategori_properti">
+                                        <option value="">Select</option>
+                                        <option value="perkantoran">Perkantoran</option>
+                                        <option value="komersial">Komersial</option>
+                                        <option value="retail">Retail</option>
+                                        <option value="gudang">Gudang</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Properti</label>
-                                    <input type="text" class="form-control" name="nama_properti" value="{{old('nama_brand')}}">
+                                    <input type="text" class="form-control" name="nama_properti" value="{{old('nama_properti')}}">
                                 </div>
-                                <label>PIC</label>
                                 <div class="form-group">
                                     <label>Net. Area</label>
-                                    <input type="text" class="form-control" name="net_area" value="{{old('pic_brand_nama')}}">
+                                    <input type="number" class="form-control" name="net_area" value="{{old('net_area')}}">
                                 </div>
                                 <div class="form-group">
                                     <label>Status Properti</label>
-                                    <input type="text" class="form-control" name="status_properti" value="{{old('pic_brand_jabatan')}}">
+                                    <select id="inputState" class="form-control" name="status_properti">
+                                        <option value="1">Disewakan</option>
+                                        <option value="0">Tidak Disewakan</option>
+                                    </select>
                                 </div>
-
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <textarea name="deskripsi_properti" class="form-control summernote"></textarea>
+                                </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary mr-1" type="submit">Tambah</button>
                                 </div>

@@ -55,11 +55,11 @@
                     <a href="#!" data-filter=".rac">Retail</a>
                 </li>
                 <li>
-                    <a href="#!" data-filter=".rac">Gudang</a>
+                    <a href="#!" data-filter=".dis">Gudang</a>
                 </li>
             </ul>
             <div class="row properties-box">
-                <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+                <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 dis">
                     <div class="item">
                         <a href="property-details.html"><img src="{{asset('frontend/assets/images/property-01.jpg')}}" alt=""></a>
                         <span class="category">Perkantoran</span>
