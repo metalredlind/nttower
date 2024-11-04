@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\DataTables\DisewakanDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Disewakan;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
+use Str;
 
 class DisewakanController extends Controller
 {
+    use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(DisewakanDataTable $dataTable)
     {
-        return view('backend.disewakan.index');
+        return $dataTable->render('backend.disewakan.index');
     }
 
     /**
@@ -28,7 +33,30 @@ class DisewakanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'image', 'max:2048'],
+            'kategori_properti' => ['required'],
+            'nama_properti' => ['required'],
+            'net_area' => ['required'],
+            'status_properti' => ['required'],
+            'deskripsi_properti' => ['max:250', 'nullable'],
+        ]);
+
+        //Handle image upload
+        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+
+        $disewakan = new Disewakan();
+        $disewakan->thumb_image = $imagePath;
+        $disewakan->nama_properti = $request->nama_properti;
+        $disewakan->slug = Str::slug($request->name);
+        $disewakan->net_area = $request->net_area;
+        $disewakan->status_properti = $request->status_properti;
+        $disewakan->deskripsi_properti = $request->deskripsi_properti;
+        $disewakan->save();
+
+        flash('Properti berhasil ditambah', 'success');
+
+        return redirect()->route('admin-disewakan.index');
     }
 
     /**

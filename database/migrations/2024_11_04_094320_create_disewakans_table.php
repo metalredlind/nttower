@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama_properti');
             $table->string('slug');
             $table->text('thumb_image')->nullable();
-            $table->string('kategori_properti');
+            $table->string('kategori_properti')->nullable();
             $table->integer('net_area');
             $table->boolean('status_properti');
             $table->text('deskripsi_properti')->nullable();

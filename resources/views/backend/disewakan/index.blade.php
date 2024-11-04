@@ -19,9 +19,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="col-3">
-
-                            </div>
+                                {{ $dataTable->table() }}
                         </div>
                     </div>
                 </div>
@@ -31,5 +29,5 @@
 @endsection
 
 @push('scripts')
-    {{-- {{ $dataTable->scripts(attributes: ['type' => 'module']) }} --}}
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
 @endpush
