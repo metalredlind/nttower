@@ -21,44 +21,34 @@ class DisewakanDataTable extends DataTable
      */
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
-        ->addColumn('action', function($query){
-            $editBtn = "<a href='".route('admin.products.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-            $deleteBtn = "<a href='".route('admin.products.destroy', $query->id)."' class='btn btn-danger ml-1 delete-item'><i class='fas fa-trash-alt'></i></a>";
-            $moreBtn = '<div class="dropleft d-inline">
-                        <button class="btn btn-primary dropdown-toggle ml-1" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                        <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 29px, 0px); top: 0px; left: 0px; will-change: transform;">
-                            <a class="dropdown-item has-icon" href="'.route('admin.products-image-gallery.index', ['product' => $query->id]).'"><i class="far fa-heart"></i> Image Gallery</a>
-                            <a class="dropdown-item has-icon" href="'.route('admin.products-variant.index', ['product' => $query->id]).'"><i class="far fa-file"></i> Variant</a>
-                        </div>
-                        </div>';
-            return $editBtn.$deleteBtn.$moreBtn;
-        })
-        ->addColumn('image', function($query){
-            return "<img width='70px' src='".asset($query->thumb_image)."' ></img>";
-        })
-        ->addColumn('type', function($query){
-            switch ($query->product_type) {
-                case 'new-arrival':
-                    return "<i class='badge badge-success'>New Arrival</i>";
-                    break;
-                case 'featured_product':
-                    return "<i class='badge badge-warning'>Featured Product</i>";
-                    break;    
-                case 'top_product':
-                    return "<i class='badge badge-info'>Top Product</i>";
-                    break;
-                case 'best_product':
-                    return "<i class='badge badge-danger'>Best Product</i>";
-                    break;
-                default:
-                    return "<i class='badge badge-dark'>None</i>";
-                    break;
-            }
-        })
-        ->rawColumns(['action', 'image', 'type', 'status'])
-        ->setRowId('id');
+        return (new EloquentDataTable($query))
+            ->addColumn('action', function($query){
+                $editBtn = "<a href='".route('admin-disewakan.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='".route('admin-disewakan.destroy', $query->id)."' class='btn btn-danger ml-1 delete-item'><i class='fas fa-trash-alt'></i></a>";
+                $moreBtn = '<div class="dropleft d-inline">
+                            <button class="btn btn-primary dropdown-toggle ml-1" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 29px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item has-icon" href=""><i class="far fa-heart"></i> Image Gallery</a>
+                            </div>
+                            </div>';
+                return $editBtn.$deleteBtn.$moreBtn;
+            })
+            ->addColumn('image', function($query){
+                return "<img width='90px' src='".asset($query->thumb_image)."' ></img>";
+            })
+            ->addColumn('status_properti', function($query){
+                $disewakan = "<i class='badge badge-success'>Disewakan</i>";
+                $tidakDisewakan = "<i class='badge badge-danger'>Tidak Disewakan</i>";
+                if($query->status_properti == 1){
+                    return $disewakan;
+                } else {
+                    return $tidakDisewakan;
+                };
+            })
+            ->rawColumns(['action','image','status_properti'])
+            ->setRowId('id');
     }
 
     /**
@@ -79,7 +69,7 @@ class DisewakanDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(1)
+                    ->orderBy(0)
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
@@ -96,16 +86,18 @@ class DisewakanDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
+        return [            
+            Column::make('id'),
+            Column::make('image'),
+            Column::make('nama_properti'),
+            Column::make('kategori_properti'),
+            Column::make('net_area'),
+            Column::make('status_properti'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(170)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

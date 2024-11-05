@@ -47,6 +47,7 @@ class DisewakanController extends Controller
 
         $disewakan = new Disewakan();
         $disewakan->thumb_image = $imagePath;
+        $disewakan->kategori_properti = $request->kategori_properti;
         $disewakan->nama_properti = $request->nama_properti;
         $disewakan->slug = Str::slug($request->name);
         $disewakan->net_area = $request->net_area;
