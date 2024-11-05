@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>General Dashboard &mdash; Stisla</title>
 
     <!-- General CSS Files -->
@@ -36,6 +37,7 @@
         gtag('config', 'UA-94034622-3');
     </script>
     <!-- /END GA -->
+    
 </head>
 
 <body>
@@ -91,24 +93,74 @@
     <script src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
     {{-- Datatables JS --}}
     <script src="//cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
                 // Display an info toast with no title
-                flasher.error("{{$error}}")
+                flasher.error("{{ $error }}")
             @endforeach
         @endif
     </script>
 
     {{-- csrf token mismatch --}}
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+
             $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+          });
+
+            $('body').on('click', '.delete-item', function(event) {
+                event.preventDefault();
+
+                let deleteUrl = $(this).attr('href');
+
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                          type: "DELETE",
+                          url: deleteUrl,
+
+                          success: function(data){
+                            
+                            if(data.status == 'success'){
+                              Swal.fire(
+                                'Deleted!',
+                                data.message,
+                                'success'
+                              )
+                              window.location.reload();
+                            }else if(data.status == 'error'){
+                              Swal.fire(
+                                'Failed to Delete!',
+                                data.message,
+                                'error'
+                              )
+                            }
+
+                          },
+
+                          error: function(xhr, status, error){
+                            console.log(error);
+                          }
+                        })
+                    }
+                });
+            })
         });
     </script>
 

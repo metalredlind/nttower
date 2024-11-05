@@ -118,5 +118,9 @@ class DisewakanController extends Controller
         $disewakan = Disewakan::findOrFail($id);
         //delete the main product image
         $this->deleteImage($disewakan->thumb_image);
+
+        $disewakan->delete();
+
+        return response(['status'=>'success', 'message'=>'Properti Berhasil Dihapus']);
     }
 }
