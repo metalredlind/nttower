@@ -39,7 +39,7 @@ class DisewakanController extends Controller
             'nama_properti' => ['required'],
             'net_area' => ['required'],
             'status_properti' => ['required'],
-            'deskripsi_properti' => ['max:250', 'nullable'],
+            'deskripsi_properti' => ['required'],
         ]);
 
         //Handle image upload
@@ -49,7 +49,7 @@ class DisewakanController extends Controller
         $disewakan->thumb_image = $imagePath;
         $disewakan->kategori_properti = $request->kategori_properti;
         $disewakan->nama_properti = $request->nama_properti;
-        $disewakan->slug = Str::slug($request->name);
+        $disewakan->slug = Str::slug($request->nama_properti);
         $disewakan->net_area = $request->net_area;
         $disewakan->status_properti = $request->status_properti;
         $disewakan->deskripsi_properti = $request->deskripsi_properti;
@@ -73,7 +73,8 @@ class DisewakanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $disewakan = Disewakan::findOrFail($id);
+        return view('backend.disewakan.edit', compact('disewakan'));
     }
 
     /**
@@ -81,7 +82,32 @@ class DisewakanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'image' => ['nullable', 'image', 'max:2048'],
+            'kategori_properti' => ['required'],
+            'nama_properti' => ['required'],
+            'net_area' => ['required'],
+            'status_properti' => ['required'],
+            'deskripsi_properti' => ['required'],
+        ]);
+
+        $disewakan = Disewakan::findOrFail($id);
+
+        //Handle image upload
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $disewakan->thumb_image);
+
+        $disewakan->thumb_image = empty(!$imagePath) ? $imagePath : $disewakan->thumb_image;
+        $disewakan->kategori_properti = $request->kategori_properti;
+        $disewakan->nama_properti = $request->nama_properti;
+        $disewakan->slug = Str::slug($request->nama_properti);
+        $disewakan->net_area = $request->net_area;
+        $disewakan->status_properti = $request->status_properti;
+        $disewakan->deskripsi_properti = $request->deskripsi_properti;
+        $disewakan->save();
+
+        flash('Properti berhasil diubah', 'success');
+
+        return redirect()->route('admin-disewakan.index');
     }
 
     /**

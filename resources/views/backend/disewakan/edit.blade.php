@@ -15,40 +15,46 @@
                             <h4>List Disewakan</h4>
                         </div>
                         <div class="card-body">
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('admin-disewakan.update', $disewakan->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
+                                <div class="form-group">
+                                    <label>Preview</label>
+                                    <br>
+                                    <img src="{{asset($disewakan->thumb_image)}}" style="width:200px" alt="">
+                                </div>
                                 <div class="form-group">
                                     <label>Image</label>
-                                    <input type="file" class="form-control" name="image">
+                                    <input type="file" class="form-control" name="thumb_image">
                                 </div>
                                 <div class="form-group">
                                     <label for="inputState">Kategori Properti</label>
                                     <select id="inputState" class="form-control" name="kategori_properti">
                                         <option value="">Select</option>
-                                        <option value="perkantoran">Perkantoran</option>
-                                        <option value="komersial">Komersial</option>
-                                        <option value="retail">Retail</option>
-                                        <option value="gudang">Gudang</option>
+                                        <option {{$disewakan->kategori_properti == 'perkantoran' ? 'selected' : ''}} value="perkantoran">Perkantoran</option>
+                                        <option {{$disewakan->kategori_properti == 'komersial' ? 'selected' : ''}} value="komersial">Komersial</option>
+                                        <option {{$disewakan->kategori_properti == 'retail' ? 'selected' : ''}} value="retail">Retail</option>
+                                        <option {{$disewakan->kategori_properti == 'gudang' ? 'selected' : ''}} value="gudang">Gudang</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Properti</label>
-                                    <input type="text" class="form-control" name="nama_properti" value="{{old('nama_properti')}}">
+                                    <input type="text" class="form-control" name="nama_properti" value="{{$disewakan->nama_properti}}">
                                 </div>
                                 <div class="form-group">
                                     <label>Net. Area</label>
-                                    <input type="number" class="form-control" name="net_area" value="{{old('net_area')}}">
+                                    <input type="number" class="form-control" name="net_area" value="{{$disewakan->net_area}}">
                                 </div>
                                 <div class="form-group">
                                     <label>Status Properti</label>
                                     <select id="inputState" class="form-control" name="status_properti">
-                                        <option value="1">Disewakan</option>
-                                        <option value="0">Tidak Disewakan</option>
+                                        <option {{$disewakan->status_properti == '1' ? 'selected' : '0'}} value="1">Disewakan</option>
+                                        <option {{$disewakan->status_properti == '0' ? 'selected' : '0'}} value="0">Tidak Disewakan</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <textarea name="deskripsi_properti" class="form-control summernote"></textarea>
+                                    <textarea name="deskripsi_properti" class="form-control summernote">{!! $disewakan->deskripsi_properti !!}</textarea>
                                 </div>
                                 <div class="card-footer text-right">
                                     <button class="btn btn-primary mr-1" type="submit">Tambah</button>
