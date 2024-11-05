@@ -115,6 +115,8 @@ class DisewakanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $disewakan = Disewakan::findOrFail($id);
+        //delete the main product image
+        $this->deleteImage($disewakan->thumb_image);
     }
 }
