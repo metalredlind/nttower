@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disewakan;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -23,7 +24,8 @@ class PageController extends Controller
 
     public function disewakan()
     {
-        return view('frontend.pages.disewakan');
+        $disewakans = Disewakan::get();
+        return view('frontend.pages.disewakan', compact('disewakans'));
     }
 
     public function peraturanRegulasi()

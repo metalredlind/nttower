@@ -59,53 +59,25 @@
                 </li>
             </ul>
             <div class="row properties-box">
-                <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 dis">
-                    <div class="item">
-                        <a href="property-details.html"><img src="{{asset('frontend/assets/images/property-01.jpg')}}" alt=""></a>
-                        <span class="category">Perkantoran</span>
-                        <h6>$2.264.000</h6>
-                        <h4><a href="property-details.html">Lantai 7</a></h4>
-                        <ul>
-                            <li>Net. Area: <span>545m2</span></li>
-                            <li>Status: <span>Disewakan</span></li>
-                        </ul>
-                        <div class="main-button">
-                            <a href="property-details.html">Lihat Detil</a>
+                @foreach ($disewakans as $disewakan)
+                    <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 dis">
+                        <div class="item">
+                            <a href="#"><img src="{{asset($disewakan->thumb_image)}}" alt=""></a>
+                            <span class="category">Perkantoran</span>
+                            <h6>-</h6>
+                            <h4><a href="#">{{$disewakan->nama_properti}}</a></h4>
+                            <ul>
+                                <li>Net. Area: <span>{{$disewakan->net_area}}</span></li>
+                                <li>Status: <span>{{$disewakan->status_properti}}</span></li>
+                            </ul>
+                            <div class="main-button">
+                                <a href="#">Lihat Detil</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
-                    <div class="item">
-                        <a href="property-details.html"><img src="{{asset('frontend/assets/images/property-02.jpg')}}" alt=""></a>
-                        <span class="category">Perkantoran</span>
-                        <h6>$1.180.000</h6>
-                        <h4><a href="property-details.html">Lantai 8</a></h4>
-                        <ul>
-                            <li>Net. Area: <span>545m2</span></li>
-                            <li>Status: <span>Disewakan</span></li>
-                        </ul>
-                        <div class="main-button">
-                            <a href="property-details.html">Lihat Detil</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv rac">
-                    <div class="item">
-                        <a href="property-details.html"><img src="{{asset('frontend/assets/images/property-03.jpg')}}" alt=""></a>
-                        <span class="category">Perkantoran</span>
-                        <h6>$1.460.000</h6>
-                        <h4><a href="property-details.html">Lantai 9</a></h4>
-                        <ul>
-                            <li>Net. Area: <span>545m2</span></li>
-                            <li>Status: <span>Disewakan</span></li>
-                        </ul>
-                        <div class="main-button">
-                            <a href="property-details.html">Lihat Detil</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <ul class="pagination">
                         <li><a href="#">1</a></li>
@@ -114,7 +86,7 @@
                         <li><a href="#">>></a></li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
