@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BeritaController;
 use App\Http\Controllers\Backend\DisewakanController;
+use App\Http\Controllers\Backend\DisewakanImageGalleryController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -35,6 +36,7 @@ Route::post('profile/update/password', [AdminProfileController::class, 'updatePa
 
 //disewakan routes
 Route::resource('admin-disewakan', DisewakanController::class);
+Route::resource('admin-disewakan-image-gallery', DisewakanImageGalleryController::class);
 
 //berita routes
 Route::resource('admin-berita', BeritaController::class);
