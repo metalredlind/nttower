@@ -39,6 +39,15 @@
                                     <input type="number" class="form-control" name="net_area" value="{{old('net_area')}}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputState">Zona Properti</label>
+                                    <select id="inputState" class="form-control" name="zona_properti">
+                                        <option value="">Select</option>
+                                        <option value="main">Main Tower</option>
+                                        <option value="podium">Podium</option>
+                                        <option value="wing">Wing Tower</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label>Status Properti</label>
                                     <select id="inputState" class="form-control" name="status_properti">
                                         <option value="1">Disewakan</option>

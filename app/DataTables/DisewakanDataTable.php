@@ -92,6 +92,7 @@ class DisewakanDataTable extends DataTable
             Column::make('nama_properti'),
             Column::make('kategori_properti'),
             Column::make('net_area'),
+            Column::make('zona_properti'),
             Column::make('status_properti'),
             Column::computed('action')
                   ->exportable(false)

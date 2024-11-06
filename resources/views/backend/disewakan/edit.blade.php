@@ -46,6 +46,14 @@
                                     <input type="number" class="form-control" name="net_area" value="{{$disewakan->net_area}}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="inputState">Zona Properti</label>
+                                    <select id="inputState" class="form-control" name="zona_properti">
+                                        <option value="">Select</option>
+                                        <option {{$disewakan->zona_properti == 'main' ? 'selected' : ''}} value="main">Main Tower</option>
+                                        <option {{$disewakan->zona_properti == 'podium' ? 'selected' : ''}} value="podium">Podium</option>
+                                        <option {{$disewakan->zona_properti == 'wing' ? 'selected' : ''}} value="wing">Wing tower</option>                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label>Status Properti</label>
                                     <select id="inputState" class="form-control" name="status_properti">
                                         <option {{$disewakan->status_properti == '1' ? 'selected' : '0'}} value="1">Disewakan</option>

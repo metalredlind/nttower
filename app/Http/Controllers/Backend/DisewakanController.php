@@ -38,6 +38,7 @@ class DisewakanController extends Controller
             'kategori_properti' => ['required'],
             'nama_properti' => ['required'],
             'net_area' => ['required'],
+            'zona_properti' => ['required'],
             'status_properti' => ['required'],
             'deskripsi_properti' => ['required'],
         ]);
@@ -51,6 +52,7 @@ class DisewakanController extends Controller
         $disewakan->nama_properti = $request->nama_properti;
         $disewakan->slug = Str::slug($request->nama_properti);
         $disewakan->net_area = $request->net_area;
+        $disewakan->zona_properti = $request->zona_properti;
         $disewakan->status_properti = $request->status_properti;
         $disewakan->deskripsi_properti = $request->deskripsi_properti;
         $disewakan->save();
@@ -87,6 +89,7 @@ class DisewakanController extends Controller
             'kategori_properti' => ['required'],
             'nama_properti' => ['required'],
             'net_area' => ['required'],
+            'zona_properti' => ['required'],
             'status_properti' => ['required'],
             'deskripsi_properti' => ['required'],
         ]);
@@ -101,6 +104,7 @@ class DisewakanController extends Controller
         $disewakan->nama_properti = $request->nama_properti;
         $disewakan->slug = Str::slug($request->nama_properti);
         $disewakan->net_area = $request->net_area;
+        $disewakan->zona_properti = $request->zona_properti;
         $disewakan->status_properti = $request->status_properti;
         $disewakan->deskripsi_properti = $request->deskripsi_properti;
         $disewakan->save();
