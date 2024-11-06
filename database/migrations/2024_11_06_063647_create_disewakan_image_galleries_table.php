@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('disewakan_image_galleries', function (Blueprint $table) {
             $table->id();
+            $table->text('image');
+            $table->integer('disewakan_id');
             $table->timestamps();
         });
     }

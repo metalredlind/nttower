@@ -22,7 +22,15 @@ class DisewakanImageGalleryDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'disewakanimagegallery.action')
+            ->addColumn('action', function($query){
+                $deleteBtn = "<a href='".route('admin-disewakan-image-gallery.destroy', $query->id)."' class='btn btn-danger ml-1 delete-item'><i class='fas fa-trash-alt'></i></a>";
+                
+                return $deleteBtn;
+            })
+            ->addColumn('images', function($query){
+                return "<img width='150px' src='".asset($query->image)."' ></img>";
+            })
+            ->rawColumns(['action', 'images'])
             ->setRowId('id');
     }
 
@@ -31,7 +39,7 @@ class DisewakanImageGalleryDataTable extends DataTable
      */
     public function query(DisewakanImageGallery $model): QueryBuilder
     {
-        return $model->newQuery();
+        return $model->where('disewakan_id', request()->disewakan)->newQuery();
     }
 
     /**
@@ -61,16 +69,14 @@ class DisewakanImageGalleryDataTable extends DataTable
      */
     public function getColumns(): array
     {
-        return [
+        return [            
+            Column::make('id')->width(100),
+            Column::make('images'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(400)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

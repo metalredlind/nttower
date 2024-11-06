@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\DataTables\DisewakanDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Disewakan;
+use App\Models\DisewakanImageGallery;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 use Str;
@@ -122,6 +123,12 @@ class DisewakanController extends Controller
         $disewakan = Disewakan::findOrFail($id);
         //delete the main product image
         $this->deleteImage($disewakan->thumb_image);
+
+        $galleryImages = DisewakanImageGallery::where('disewakan_id', $disewakan->id)->get();
+        foreach($galleryImages as $galleryImage){
+            $this->deleteImage($galleryImage->image);
+            $galleryImage->delete();
+        }
 
         $disewakan->delete();
 
