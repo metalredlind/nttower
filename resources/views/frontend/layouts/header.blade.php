@@ -5,16 +5,16 @@
         <div class="row">
             <div class="col-lg-8 col-md-8">
                 <ul class="info">
-                    <li><i class="fa fa-envelope"></i> info@nttower.com</li>
+                    <li><i class="fa fa-envelope"></i> marketing@nttower.com</li>
                     <li><i class="fa fa-map"></i>Jl. Pulomas Selatan Kav. Blok, Kota Jakarta Timur 13210</li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-4">
                 <ul class="social-links">
-                    <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="https://x.com/minthu" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -29,7 +29,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="{{ route('home') }}" class="logo">
-                        <h1>NT TOWER</h1>
+                        <img src="{{asset('frontend/assets/images/logo.png')}}" alt="NT Tower Logo">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -51,8 +51,7 @@
                         <li><a href="{{ route('peraturan-regulasi')}}">Peraturan & Regulasi</a></li>
                         <!-- Berita Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="#" id="beritaDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="dropdown-toggle" href="#" id="beritaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Berita
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
