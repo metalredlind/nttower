@@ -34,17 +34,20 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="{{ route('home') }}" class="active">Beranda</a></li>
+                        <li><a href="{{ route('home') }}" class="{{setActive(['home'])}}">Beranda</a></li>
                         <!-- Profil Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="#" id="profilDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="dropdown-toggle {{setActive([
+                                'tentang-kami',
+                                'direktori-tenan',
+                                'fasilitas'
+                                ])}}" href="#" id="profilDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Profil
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-                                <li><a class="dropdown-item" href="{{ route('tentang-kami')}}">Tentang Kami</a></li>
-                                <li><a class="dropdown-item" href="{{ route('direktori-tenan')}}">Direktori Tenan</a></li>
-                                <li><a class="dropdown-item" href="{{ route('fasilitas')}}">Fasilitas</a></li>
+                                <li class="{{setActive(['tentang-kami'])}}"><a class="dropdown-item" href="{{ route('tentang-kami')}}">Tentang Kami</a></li>
+                                <li class="{{setActive(['direktori-tenan'])}}"><a class="dropdown-item" href="{{ route('direktori-tenan')}}">Direktori Tenan</a></li>
+                                <li class="{{setActive(['fasilitas'])}}"><a class="dropdown-item" href="{{ route('fasilitas')}}">Fasilitas</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ route('disewakan')}}">Disewakan</a></li>

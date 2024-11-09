@@ -10,3 +10,15 @@ function setActive(array $route)
         }
     }
 }
+
+function productType($statusDisewakan)
+{
+    switch ($statusDisewakan) {
+        case 0:
+            return "Tidak Disewakan";
+            break;
+        case 1:
+            return "Disewakan";
+            break;
+    }
+}
