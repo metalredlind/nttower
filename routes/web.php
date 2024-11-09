@@ -19,6 +19,9 @@ Route::get('/direktori-tenan', [PageController::class, 'direktoriTenan'])->name(
 Route::get('/fasilitas', [PageController::class, 'fasilitas'])->name('fasilitas');
 
 Route::get('/disewakan', [PageController::class, 'disewakan'])->name('disewakan');
+
+Route::get('/disewakan-detail', [PageController::class, 'disewakanDetail'])->name('disewakan-detail');
+
 Route::get('/peraturan-regulasi', [PageController::class, 'peraturanRegulasi'])->name('peraturan-regulasi');
 Route::get('/berita', [PageController::class, 'beritaWhatson'])->name('berita');
 Route::get('/berita-video', [PageController::class, 'beritaVideo'])->name('berita-video');

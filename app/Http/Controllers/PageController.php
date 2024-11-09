@@ -28,6 +28,12 @@ class PageController extends Controller
         return view('frontend.pages.disewakan', compact('disewakans'));
     }
 
+    public function disewakanDetail()
+    {
+        $disewakans = Disewakan::get();
+        return view('frontend.pages.disewakan-detail', compact('disewakans'));
+    }
+
     public function peraturanRegulasi()
     {
         return view('frontend.pages.peraturan-regulasi');
