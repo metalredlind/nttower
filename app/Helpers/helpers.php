@@ -22,3 +22,19 @@ function statusDisewakan($statusDisewakan)
             break;
     }
 }
+
+function zonaDisewakan($zonaDisewakan)
+{
+    switch ($zonaDisewakan) {
+        case 'main':
+            return "Main Tower";
+            break;
+        case 'podium':
+            return "Main Tower & Podium";
+            break;
+        case 'wing':
+            return "Wing Tower";
+            break;
+    }
+}
+

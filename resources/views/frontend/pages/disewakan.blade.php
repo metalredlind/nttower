@@ -52,7 +52,7 @@
                         <ul>
                             <li>Net. Area: <span>{{$disewakan->net_area}}</span></li>
                             <li>Status: <span>{{statusDisewakan($disewakan->status_properti)}}</span></li>
-                            <li>Zona: <span>{{$disewakan->zona_properti}}</span></li>
+                            <li>Zona: <span>{{zonaDisewakan($disewakan->zona_properti)}}</span></li>
                         </ul>
                         <div class="main-button">
                             <a href="property-details.html">Lihat Detil</a>
