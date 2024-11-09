@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <div class="page-heading header-text">
+    <div class="page-heading header-text b">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
