@@ -11,7 +11,7 @@ function setActive(array $route)
     }
 }
 
-function productType($statusDisewakan)
+function statusDisewakan($statusDisewakan)
 {
     switch ($statusDisewakan) {
         case 0:

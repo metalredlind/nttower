@@ -45,16 +45,16 @@
                                 Profil
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="profilDropdown">
-                                <li class="{{setActive(['tentang-kami'])}}"><a class="dropdown-item" href="{{ route('tentang-kami')}}">Tentang Kami</a></li>
-                                <li class="{{setActive(['direktori-tenan'])}}"><a class="dropdown-item" href="{{ route('direktori-tenan')}}">Direktori Tenan</a></li>
-                                <li class="{{setActive(['fasilitas'])}}"><a class="dropdown-item" href="{{ route('fasilitas')}}">Fasilitas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('tentang-kami')}}">Tentang Kami</a></li>
+                                <li><a class="dropdown-item" href="{{ route('direktori-tenan')}}">Direktori Tenan</a></li>
+                                <li><a class="dropdown-item" href="{{ route('fasilitas')}}">Fasilitas</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('disewakan')}}">Disewakan</a></li>
-                        <li><a href="{{ route('peraturan-regulasi')}}">Peraturan & Regulasi</a></li>
+                        <li><a class="{{setActive(['disewakan'])}}" href="{{ route('disewakan')}}">Disewakan</a></li>
+                        <li><a class="{{setActive(['peraturan-regulasi'])}}" href="{{ route('peraturan-regulasi')}}">Peraturan & Regulasi</a></li>
                         <!-- Berita Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle" href="#" id="beritaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="dropdown-toggle {{setActive(['berita', 'berita-video'])}}" href="#" id="beritaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Berita
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="beritaDropdown">
@@ -62,7 +62,7 @@
                                 <li><a class="dropdown-item" href="{{ route('berita-video')}}">Videos</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ route('kontak')}}">Kontak</a></li>
+                        <li><a class="{{setActive(['kontak'])}}" href="{{ route('kontak')}}">Kontak</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
