@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <h4>Video</h4>
                             <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{route('admin-berita-video.create')}}" class="btn btn-primary">
                                     + Add New
                                 </a>
                             </div>

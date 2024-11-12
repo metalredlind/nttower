@@ -22,8 +22,12 @@ class BeritaVideoDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'beritavideo.action')
-            ->setRowId('id');
+        ->addColumn('action', function($query){
+            $deleteBtn = "<a href='".route('admin-berita-video.destroy', $query->id)."' class='btn btn-danger ml-1 delete-item'><i class='fas fa-trash-alt'></i></a>";
+            return $deleteBtn;
+        })
+        ->rawColumns(['action'])
+        ->setRowId('id');
     }
 
     /**

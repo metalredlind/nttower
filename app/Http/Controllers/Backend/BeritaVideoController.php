@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\DataTables\BeritaVideoDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\BeritaVideo;
 use Illuminate\Http\Request;
 
 class BeritaVideoController extends Controller
@@ -21,7 +22,7 @@ class BeritaVideoController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.berita-video.create');
     }
 
     /**
@@ -29,7 +30,17 @@ class BeritaVideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'youtube_url' => ['required', 'url'],
+        ]);
+
+        $beritaVideo = new BeritaVideo();
+        $beritaVideo->youtube_url = $request->youtube_url;
+        $beritaVideo->save();
+
+        flash('Youtube Url berhasil ditambah', 'success');
+
+        return redirect()->route('admin-berita-video.index');
     }
 
     /**
@@ -61,6 +72,10 @@ class BeritaVideoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $beritaVideo = BeritaVideo::findOrFail($id);
+        
+        $beritaVideo->delete();
+
+        return response(['status'=>'success', 'message'=>'Youtube Url Berhasil Dihapus']);
     }
 }
