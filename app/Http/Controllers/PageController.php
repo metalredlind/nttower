@@ -30,7 +30,8 @@ class PageController extends Controller
 
     public function disewakanDetail(string $slug)
     {
-        return view('frontend.pages.disewakan-detail');
+        $disewakan = Disewakan::where('slug', $slug)->first();
+        return view('frontend.pages.disewakan-detail', compact('disewakan'));
     }
 
     public function peraturanRegulasi()
