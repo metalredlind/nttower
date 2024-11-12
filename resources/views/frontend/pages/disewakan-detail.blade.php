@@ -24,7 +24,7 @@
 
                     <div class="main-content">
                         <span class="category">Perkantoran</span>
-                        <h4>Lantai 8</h4>
+                        <h4>{{$disewakan->nama_properti}}</h4>
                         <div class="gallery d-flex">
                             <img src="{{ asset($disewakan->thumb_image) }}" alt="Thumbnail 1" class="img-thumbnail me-2"
                                 style="width: 300px; cursor: pointer;" onclick="changeImage(this)">

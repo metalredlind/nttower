@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BeritaController;
+use App\Http\Controllers\Backend\BeritaVideoController;
 use App\Http\Controllers\Backend\DisewakanController;
 use App\Http\Controllers\Backend\DisewakanImageGalleryController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
@@ -38,11 +39,13 @@ Route::post('profile/update', [AdminProfileController::class, 'updateProfile'])-
 Route::post('profile/update/password', [AdminProfileController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('admin-profile.password.update');
 
 //disewakan routes
-Route::resource('admin-disewakan', DisewakanController::class);
-Route::resource('admin-disewakan-image-gallery', DisewakanImageGalleryController::class);
+Route::resource('admin-disewakan', DisewakanController::class)->middleware(['auth', 'verified']);
+Route::resource('admin-disewakan-image-gallery', DisewakanImageGalleryController::class)->middleware(['auth', 'verified']);
 
 //berita routes
-Route::resource('admin-berita', BeritaController::class);
+Route::resource('admin-berita', BeritaController::class)->middleware(['auth', 'verified']);
+//berita-video routes
+Route::resource('admin-berita-video', BeritaVideoController::class)->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

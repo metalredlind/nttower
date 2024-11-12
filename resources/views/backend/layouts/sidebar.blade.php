@@ -15,11 +15,11 @@
       ])}}">
           <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Konten</span></a>
           <ul class="dropdown-menu">
-            <li class="{{setActive(['admin-disewakan.*',
-                                    'admin-disewakan-image-gallery.*'])}}">
-                                <a class="nav-link" href="{{route('admin-disewakan.index')}}">Disewakan</a>
+            <li class="{{setActive(['admin-disewakan.*', 'admin-disewakan-image-gallery.*'])}}">
+              <a class="nav-link" href="{{route('admin-disewakan.index')}}">Disewakan</a>
             </li>
             <li class="{{setActive(['admin-berita.*'])}}"><a class="nav-link" href="{{route('admin-berita.index')}}">Berita</a></li>
+            <li class="{{setActive(['admin-berita-video.*'])}}"><a class="nav-link" href="{{route('admin-berita-video.index')}}">Berita Video</a></li>
           </ul>
         </li>
         <li class="{{setActive(['admin-profile'])}}"><a class="nav-link" href="{{route('admin-profile')}}"><i class="fas fa-pencil-ruler"></i> <span>Manage User</span></a></li>
