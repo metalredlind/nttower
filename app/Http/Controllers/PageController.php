@@ -24,7 +24,7 @@ class PageController extends Controller
 
     public function disewakan()
     {
-        $disewakans = Disewakan::get();
+        $disewakans = Disewakan::paginate(3);
         return view('frontend.pages.disewakan', compact('disewakans'));
     }
 
