@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BeritaVideo;
 use App\Models\Disewakan;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,8 @@ class PageController extends Controller
 
     public function beritaVideo()
     {
-        return view('frontend.pages.berita-video');
+        $beritaVideos = BeritaVideo::get();
+        return view('frontend.pages.berita-video', compact('beritaVideos'));
     }
 
     public function kontak()

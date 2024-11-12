@@ -12,15 +12,31 @@
         </div>
     </div>
 
-    <div class="videos section">
+
+    <div class="videos section py-5">
         <div class="container">
-            <div class="row g-3">
-                <div class="col-lg-6 col-md-12">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/aIsjlQ7yy7E" title="YouTube video"
-                            allowfullscreen></iframe>
+            <div class="row g-4">
+                @foreach ($beritaVideos as $beritaVideo)
+                    @php
+                        // Convert YouTube URL to embed format if needed
+                        $youtubeEmbedUrl = preg_replace(
+                            '/watch\?v=([a-zA-Z0-9_-]+)/', 
+                            'embed/$1', 
+                            $beritaVideo->youtube_url
+                        );
+                    @endphp
+                    <div class="col-lg-6 col-md-6">
+                        <div class="ratio ratio-16x9">
+                            <iframe 
+                                src="{{ $youtubeEmbedUrl }}?autoplay=0" 
+                                title="YouTube video" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen
+                            ></iframe>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
