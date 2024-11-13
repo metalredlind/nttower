@@ -25,9 +25,38 @@ class PageController extends Controller
         return view('frontend.pages.fasilitas', compact('fasilitas'));
     }
 
-    public function disewakan()
+    public function disewakan(Request $request)
     {
-        $disewakans = Disewakan::paginate(9);
+        $query = Disewakan::query();
+
+        // Check and apply 'zona_properti' filter
+        if ($request->filled('zona')) {
+            $query->where('zona_properti', $request->zona);
+        }
+
+        // Check and apply 'nama_properti' filter
+        if ($request->filled('lantai')) {
+            $query->where('nama_properti', $request->lantai);
+        }
+
+        // Apply sorting if specified
+        if ($request->filled('sort')) {
+            if ($request->sort === 'floor-asc') {
+                $query->orderBy('net_area', 'asc');
+            } elseif ($request->sort === 'floor-desc') {
+                $query->orderBy('net_area', 'desc');
+            }
+        }
+
+        // Get paginated results
+        $disewakans = $query->paginate(9);
+
+        // Check if AJAX request for partial view
+        if ($request->ajax()) {
+            return view('frontend.pages.partials.disewakan-list', compact('disewakans'))->render();
+        }
+
+        // Return main view for full page load
         return view('frontend.pages.disewakan', compact('disewakans'));
     }
 
