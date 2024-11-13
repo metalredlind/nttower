@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BeritaVideo;
 use App\Models\Disewakan;
+use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -20,7 +21,8 @@ class PageController extends Controller
 
     public function fasilitas()
     {
-        return view('frontend.pages.fasilitas');
+        $fasilitas = Fasilitas::paginate(9);
+        return view('frontend.pages.fasilitas', compact('fasilitas'));
     }
 
     public function disewakan()
