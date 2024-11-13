@@ -20,6 +20,8 @@
             </li>
             <li class="{{setActive(['admin-berita.*'])}}"><a class="nav-link" href="{{route('admin-berita.index')}}">Berita</a></li>
             <li class="{{setActive(['admin-berita-video.*'])}}"><a class="nav-link" href="{{route('admin-berita-video.index')}}">Berita Video</a></li>
+            
+            <li class="{{setActive(['admin-fasilitas.*'])}}"><a class="nav-link" href="{{route('admin-fasilitas.index')}}">Fasilitas</a></li>
           </ul>
         </li>
         <li class="{{setActive(['admin-profile'])}}"><a class="nav-link" href="{{route('admin-profile')}}"><i class="fas fa-pencil-ruler"></i> <span>Manage User</span></a></li>

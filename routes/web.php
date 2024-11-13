@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\BeritaController;
 use App\Http\Controllers\Backend\BeritaVideoController;
 use App\Http\Controllers\Backend\DisewakanController;
 use App\Http\Controllers\Backend\DisewakanImageGalleryController;
+use App\Http\Controllers\Backend\FasilitasController;
 use App\Http\Controllers\Backend\ProfileController as BackendProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -46,6 +47,9 @@ Route::resource('admin-disewakan-image-gallery', DisewakanImageGalleryController
 Route::resource('admin-berita', BeritaController::class)->middleware(['auth', 'verified']);
 //berita-video routes
 Route::resource('admin-berita-video', BeritaVideoController::class)->middleware(['auth', 'verified']);
+
+//admin fasilitas routes
+Route::resource('admin-fasilitas', FasilitasController::class)->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
