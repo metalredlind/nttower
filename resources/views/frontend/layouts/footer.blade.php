@@ -17,18 +17,18 @@
       <div class="footer-links">
         <h4>LINKS</h4>
         <div class="links-column">
-          <a href="#">Tentang Kami</a>
-          <a href="#">Direktori Tenan</a>
-          <a href="#">Fasilitas</a>
-          <a href="#">What's On</a>
+          <a href="{{route('tentang-kami')}}">Tentang Kami</a>
+          <a href="{{route('direktori-tenan')}}">Direktori Tenan</a>
+          <a href="{{route('fasilitas')}}">Fasilitas</a>
+          <a href="{{route('berita')}}">What's On</a>
 
 
         </div>
         <div class="links-column">
-          <a href="#">Videos</a>
-          <a href="#">Disewakan</a>
-          <a href="#">Peraturan & Regulasi</a>
-          <a href="#">Kontak</a>
+          <a href="{{route('berita-video')}}">Videos</a>
+          <a href="{{route('disewakan')}}">Disewakan</a>
+          <a href="{{route('peraturan-regulasi')}}">Peraturan & Regulasi</a>
+          <a href="{{route('kontak')}}">Kontak</a>
         </div>
       </div>
 

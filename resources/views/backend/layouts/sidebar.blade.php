@@ -11,7 +11,9 @@
         <li class="dropdown {{setActive([
           'admin-disewakan.*',
           'admin-disewakan-image-gallery.*',
-          'admin-berita.*'
+          'admin-berita.*',
+          'admin-berita-video.*',
+          'admin-fasilitas.*'
       ])}}">
           <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Konten</span></a>
           <ul class="dropdown-menu">
