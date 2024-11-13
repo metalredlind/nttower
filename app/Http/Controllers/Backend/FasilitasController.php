@@ -65,7 +65,8 @@ class FasilitasController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $fasilitas = Fasilitas::findOrFail($id);
+        return view('backend.fasilitas.edit', compact('fasilitas'));
     }
 
     /**
@@ -73,7 +74,25 @@ class FasilitasController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'image' => ['nullable' ,'image', 'max:2048'],
+            'nama_fasilitas' => ['required'],
+            'deskripsi_fasilitas' => ['required'],
+        ]);
+
+        $fasilitas = Fasilitas::findOrFail($id);
+
+        //Handle image upload
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $fasilitas->thumb_image);
+
+        $fasilitas->thumb_image = empty(!$imagePath) ? $imagePath : $fasilitas->thumb_image;
+        $fasilitas->nama_fasilitas = $request->nama_fasilitas;
+        $fasilitas->deskripsi_fasilitas = $request->deskripsi_fasilitas;
+        $fasilitas->save();
+
+        flash('Fasilitas berhasil diubah', 'success');
+
+        return redirect()->route('admin-fasilitas.index');
     }
 
     /**
@@ -81,6 +100,12 @@ class FasilitasController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $fasilitas = Fasilitas::findOrFail($id);
+        //delete the main product image
+        $this->deleteImage($fasilitas->thumb_image);
+        
+        $fasilitas->delete();
+
+        return response(['status'=>'success', 'message'=>'Fasilitas Berhasil Dihapus']);
     }
 }
