@@ -71,9 +71,9 @@ class FasilitasDataTable extends DataTable
     {
         return [            
             Column::make('id'),
-            Column::make('image'),
-            Column::make('nama_fasilitas'),
-            Column::make('deskripsi_properti'),
+            Column::make('image')->width(150),
+            Column::make('nama_fasilitas')->width(200),
+            Column::make('deskripsi_fasilitas'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

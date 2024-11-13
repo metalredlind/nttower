@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\DataTables\FasilitasDataTable;
 use App\Http\Controllers\Controller;
+use App\Models\Fasilitas;
+use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
 
 class FasilitasController extends Controller
 {
+    use ImageUploadTrait;
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +32,24 @@ class FasilitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required', 'image', 'max:2048'],
+            'nama_fasilitas' => ['required'],
+            'deskripsi_fasilitas' => ['required'],
+        ]);
+
+        //Handle image upload
+        $imagePath = $this->uploadImage($request, 'image', 'uploads');
+
+        $fasilitas = new Fasilitas();
+        $fasilitas->thumb_image = $imagePath;
+        $fasilitas->nama_fasilitas = $request->nama_fasilitas;
+        $fasilitas->deskripsi_fasilitas = $request->deskripsi_fasilitas;
+        $fasilitas->save();
+
+        flash('Fasilitas berhasil ditambah', 'success');
+
+        return redirect()->route('admin-fasilitas.index');
     }
 
     /**
