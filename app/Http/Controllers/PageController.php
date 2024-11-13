@@ -29,22 +29,20 @@ class PageController extends Controller
     {
         $query = Disewakan::query();
 
-        // Check and apply 'zona_properti' filter
-        if ($request->filled('zona')) {
+        if ($request->has('zona') && $request->zona != '') {
             $query->where('zona_properti', $request->zona);
         }
 
-        // Check and apply 'nama_properti' filter
-        if ($request->filled('lantai')) {
-            $query->where('nama_properti', $request->lantai);
+        if ($request->has('lantai') && $request->lantai != '') {
+            $query->where('nama_properti', $request->lantai); // Use nama_properti for filtering
         }
 
-        // Apply sorting if specified
-        if ($request->filled('sort')) {
-            if ($request->sort === 'floor-asc') {
-                $query->orderBy('net_area', 'asc');
-            } elseif ($request->sort === 'floor-desc') {
-                $query->orderBy('net_area', 'desc');
+        if ($request->has('sort') && $request->sort != '') {
+            $sort = $request->sort;
+            if ($sort === 'floor-asc') {
+                $query->orderBy('nama_properti', 'asc');
+            } elseif ($sort === 'floor-desc') {
+                $query->orderBy('nama_properti', 'desc');
             }
         }
 
@@ -85,5 +83,13 @@ class PageController extends Controller
     public function kontak()
     {
         return view('frontend.pages.kontak');
+    }
+
+    public function getLantaiOptions(Request $request)
+    {
+        $zona = $request->input('zona');
+        $lantaiOptions = Disewakan::where('zona_properti', $zona)->get(['nama_properti']); // Fetch floor names based on zona_properti
+
+        return response()->json(['lantai' => $lantaiOptions]);
     }
 }

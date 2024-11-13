@@ -33,6 +33,9 @@ Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/get-lantai-options', [PageController::class, 'getLantaiOptions']);
+
+
 Route::get('dashboard', [AdminDashboardController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('admin-profile', [AdminProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('admin-profile');

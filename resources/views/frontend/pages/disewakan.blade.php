@@ -55,34 +55,55 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(document).ready(function() {
-        function filterProperties() {
-            let zona = $('#zona-select').val();
-            let lantai = $('#lantai-select').val();
-            let sort = $('#sort-select').val();
+    <script>
+        $(document).ready(function() {
+            $('#zona-select').on('change', function() {
+                var zona = $(this).val();
 
-            $.ajax({
-                url: '{{ route("disewakan") }}',
-                type: 'GET',
-                data: {
-                    zona: zona,
-                    lantai: lantai,
-                    sort: sort
-                },
-                success: function(data) {
-                    console.log("AJAX Response:", data); // Shows the HTML response in console
-                    $('#disewakan-list').html(data); // Insert the response HTML
-                    console.log("Content replaced in #disewakan-list"); // Confirm replacement
-                },
-                error: function(xhr, status, error) {
-                    console.error("AJAX Error:", xhr.responseText);
-                }
+                // Make an AJAX request to get the filtered properties based on zona
+                $.ajax({
+                    url: '/get-lantai-options',
+                    method: 'GET',
+                    data: {
+                        zona: zona
+                    },
+                    success: function(response) {
+                        // Clear existing lantai options
+                        $('#lantai-select').empty();
+                        $('#lantai-select').append('<option value="">Pilih Lantai</option>');
+
+                        // Populate lantai options with floor names (nama_properti)
+                        response.lantai.forEach(function(lantai) {
+                            $('#lantai-select').append('<option value="' + lantai.nama_properti + '">' + lantai.nama_properti + '</option>');
+                        });
+                    }
+                });
             });
-        }
 
-        $('#zona-select, #lantai-select, #sort-select').on('change', filterProperties);
-        $('.filter-button').on('click', filterProperties);
-    });
-</script>
+            function filterProperties() {
+                let zona = $('#zona-select').val();
+                let lantai = $('#lantai-select').val();
+                let sort = $('#sort-select').val();
+
+                $.ajax({
+                    url: '{{ route("disewakan") }}',
+                    type: 'GET',
+                    data: {
+                        zona: zona,
+                        lantai: lantai,
+                        sort: sort
+                    },
+                    success: function(data) {
+                        $('#disewakan-list').html(data); // Insert the response HTML
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error:", xhr.responseText);
+                    }
+                });
+            }
+
+            $('#zona-select, #lantai-select, #sort-select').on('change', filterProperties);
+            $('.filter-button').on('click', filterProperties);
+        });
+    </script>
 @endpush
