@@ -74,6 +74,11 @@ class PageController extends Controller
         return view('frontend.pages.berita-whatson');
     }
 
+    public function beritaWhatsonDetail()
+    {
+        return view('frontend.pages.berita-whatson-detail');
+    }
+
     public function beritaVideo()
     {
         $beritaVideos = BeritaVideo::get();

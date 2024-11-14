@@ -1705,6 +1705,10 @@ Single Page Style
   margin-top: 40px;
 }
 
+.single-property .main-content p {
+  font-size: 16px;
+}
+
 .single-property .accordion {
   margin-top: 60px;
   margin-left: 0px;
@@ -1776,6 +1780,43 @@ Single Page Style
 }
 
 .single-property .info-table ul li h4 span {
+  font-size: 15px;
+  color: #aaa;
+  font-weight: 400;
+}
+
+
+.single-property .other-news {
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  padding: 35px 30px;
+  margin-left: 60px;
+}
+
+.single-property .other-news ul li {
+  display: block;
+  margin-bottom: 35px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #eee;
+}
+
+.single-property .other-news ul li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.single-property .other-news ul li img {
+  float: left;
+  margin-right: 25px;
+}
+
+.single-property .other-news ul li h4 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.single-property .other-news ul li h4 span {
   font-size: 15px;
   color: #aaa;
   font-weight: 400;
@@ -2217,3 +2258,94 @@ body {
 }
 
 
+/* 
+---------------------------------------------
+Whats-on Style
+--------------------------------------------- 
+*/
+
+.whatson .item {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.whatson .item img {
+  border-radius: 10px;
+}
+
+.whatson .item span.category {
+  background-color: #25408f;
+  font-weight: 500;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 5px 12px;
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.whatson .item .berita-title {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0;
+  margin: 20px 0px;
+}
+
+.whatson .item .berita-title a:hover{
+  color: #4a2eeb;
+  transition: 0.3s;
+}
+
+.whatson:hover .item h4 {
+  color: var(--theme-default5);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.whatson .item span{
+  color: #4886bc;;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 1;
+}
+
+.whatson .item h4 a {
+  color: #1e1e1e;
+}
+
+.whatson .item ul li {
+  display: inline-block;
+  font-size: 15px;
+  color: #4a4a4a;
+  margin-right: 20px;
+}
+
+.whatson .item ul li span {
+  font-weight: 600;
+  color: #4886bc;
+}
+
+.whatson .item ul {
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.whatson .item h6 {
+  font-size: 20px;
+  color: #25408f;
+  margin-top: 6px;
+  display: inline-block;
+  float: right;
+  margin-top: 30px;
+}
+
+.whatson .item .main-button {
+  text-align: right;
+}
+
+.whatson .item .content {
+  margin-top: 20px;
+}
