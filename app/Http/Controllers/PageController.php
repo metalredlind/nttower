@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\BeritaVideo;
 use App\Models\Disewakan;
 use App\Models\Fasilitas;
@@ -71,12 +72,14 @@ class PageController extends Controller
 
     public function beritaWhatson()
     {
-        return view('frontend.pages.berita-whatson');
+        $beritas = Berita::paginate(9);
+        return view('frontend.pages.berita-whatson', compact('beritas'));
     }
 
-    public function beritaWhatsonDetail()
+    public function beritaWhatsonDetail(string $slug)
     {
-        return view('frontend.pages.berita-whatson-detail');
+        $beritas = Berita::where('slug', $slug)->first();
+        return view('frontend.pages.berita-whatson-detail', compact('beritas'));
     }
 
     public function beritaVideo()

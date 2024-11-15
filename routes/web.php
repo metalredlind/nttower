@@ -27,7 +27,7 @@ Route::get('/disewakan-detail/{slug}', [PageController::class, 'disewakanDetail'
 Route::get('/peraturan-regulasi', [PageController::class, 'peraturanRegulasi'])->name('peraturan-regulasi');
 
 Route::get('/berita', [PageController::class, 'beritaWhatson'])->name('berita');
-Route::get('/berita-detail', [PageController::class, 'beritaWhatsonDetail'])->name('berita-detail');
+Route::get('/berita-detail/{slug}', [PageController::class, 'beritaWhatsonDetail'])->name('berita-detail');
 
 Route::get('/berita-video', [PageController::class, 'beritaVideo'])->name('berita-video');
 Route::get('/kontak', [PageController::class, 'kontak'])->name('kontak');
