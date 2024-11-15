@@ -13,14 +13,14 @@
                         <div class="card-header">
                             <h4>Berita</h4>
                             <div class="card-header-action">
-                                <a href="#" class="btn btn-primary">
+                                <a href="{{route('admin-berita.create')}}" class="btn btn-primary">
                                     + Add New
                                 </a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="col-3">
-
+                            <div class="col-12">
+                                {{ $dataTable->table() }}
                             </div>
                         </div>
                     </div>
@@ -29,3 +29,8 @@
         </div>
     </section>
 @endsection
+
+
+@push('scripts')
+    {{ $dataTable->scripts(attributes: ['type' => 'module']) }};
+@endpush

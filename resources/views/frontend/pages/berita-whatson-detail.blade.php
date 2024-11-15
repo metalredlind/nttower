@@ -29,23 +29,15 @@
             </div>
             <div class="col-lg-4">
               <div class="other-news">
-                <h4 class="other-news-title">Artikel Terbaru</h4>
+                <h4 class="other-news-title mb-4">Artikel Terbaru</h4>
                 <ul>
                   <li>
-                    <img src="assets/images/info-icon-01.png" alt="" style="max-width: 52px;">
+                    <img src="{{asset('frontend/assets/images/single-property.jpg')}}" alt="" style="max-width: 75px;">
                     <h4>450 m2<br><span>Total Flat Space</span></h4>
                   </li>
                   <li>
-                    <img src="assets/images/info-icon-02.png" alt="" style="max-width: 52px;">
-                    <h4>Contract<br><span>Contract Ready</span></h4>
-                  </li>
-                  <li>
-                    <img src="assets/images/info-icon-03.png" alt="" style="max-width: 52px;">
-                    <h4>Payment<br><span>Payment Process</span></h4>
-                  </li>
-                  <li>
-                    <img src="assets/images/info-icon-04.png" alt="" style="max-width: 52px;">
-                    <h4>Safety<br><span>24/7 Under Control</span></h4>
+                    <img src="{{asset('frontend/assets/images/single-property.jpg')}}" alt="" style="max-width: 75px;">
+                    <h4 class="">Contract<br><span>Contract Ready</span></h4>
                   </li>
                 </ul>
               </div>
