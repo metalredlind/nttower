@@ -1834,6 +1834,7 @@ Single Page Style
 }
 
 .single-property .other-news h4 a{
+  font-size: 16px;
   color: #000;
   transition: 0.3s;
 }

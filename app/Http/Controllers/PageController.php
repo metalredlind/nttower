@@ -62,6 +62,7 @@ class PageController extends Controller
     public function disewakanDetail(string $slug)
     {
         $disewakan = Disewakan::where('slug', $slug)->first();
+
         return view('frontend.pages.disewakan-detail', compact('disewakan'));
     }
 
@@ -79,7 +80,14 @@ class PageController extends Controller
     public function beritaWhatsonDetail(string $slug)
     {
         $beritas = Berita::where('slug', $slug)->first();
-        return view('frontend.pages.berita-whatson-detail', compact('beritas'));
+
+        // Fetch 5 artikel terbaru
+        $artikelTerbaru = Berita::where('slug', '!=', $slug)
+                            ->orderBy('updated_at', 'desc') // Sort by most recent
+                            ->take(5) // Limit to 5 
+                            ->get();
+
+        return view('frontend.pages.berita-whatson-detail', compact('beritas', 'artikelTerbaru'));
     }
 
     public function beritaVideo()
